@@ -24,11 +24,13 @@ function createUserExposerService(execlib, ParentServicePack) {
   };
 
   UserExposerService.prototype.obtainOuterSink = function () {
-    console.log(this);
     this.obtainUsersSink();
   };
 
   UserExposerService.prototype.onUsersSink = function (userssink) {
+    if (!userssink) {
+      return;
+    }
     this.acquireUserServiceSinkTask = taskRegistry.run('acquireUserServiceSink',{
       sink: userssink,
       cb: this.setOuterSink.bind(this),
