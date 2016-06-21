@@ -1,5 +1,14 @@
 function createServicePack(execlib) {
   'use strict';
+
+  return {
+    service: {
+      dependencies: ['allex:sinkexposer']
+    },
+    sinkmap: {
+      dependencies: ['allex:sinkexposer']
+    }
+  };
   var lib = execlib.lib,
     q = lib.q,
     d = q.defer(),
